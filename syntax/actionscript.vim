@@ -4,6 +4,8 @@
 " URL:		http://www.modesite.net/vim/actionscript.vim
 " Last Change:	2002 Sep 12
 " Updated to support AS 2.0 2004 Mar 12 by Richard Leider  (richard@appliedrhetoric.com)
+" Updated to support new AS 2.0 Flash 8 Language Elements 2005 September 29 (richard@appliedrhetoric.com)
+
 
 " For version 5.x: Clear all syntax items
 " For version 6.x: Quit when a syntax file was already loaded
@@ -65,7 +67,11 @@ syn keyword actionScriptTextSnapshot 		getCount setSelected getSelected getText 
 syn keyword actionScriptID3 				id3 artist album songtitle year genre track comment COMM TALB TBPM TCOM TCON TCOP TDAT TDLY TENC TEXT TFLT TIME TIT1 TIT2 TIT3 TKEY TLAN TLEN TMED TOAL TOFN TOLY TOPE TORY TOWN TPE1 TPE2 TPE3 TPE4 TPOS TPUB TRCK TRDA TRSN TRSO TSIZ TSRX TSSE TYER WXXX
 syn keyword actionScriptAS2 				class extends public private static interface implements import dynamic
 syn keyword actionScriptStyleSheet 			parse parseCSS getStyle setStyle getStyleNames
-
+syn keyword flash8Functions                             onMetaData onCuePoint flashdisplay flashexternal flashfilters flashgeom flashnet flashtext addCallback applyFilter browse cancel clone colorTransform  containsPoint containsRectangle copyChannel copyPixels createBox createGradientBox deltaTransformPoint dispose download draw equals fillRect floodFill generateFilterRect getColorBoundsRect getPixel getPixel32 identity inflate inflatePoint interpolate intersection intersects invert isEmpty loadBitmap merge noise normalize offsetPoint paletteMap perlinNoise pixelDissolve polar rotate scale setAdvancedAntialiasingTable setEmpty setPixel setPixel32 subtract threshold transformPoint translate union upload
+syn keyword flash8Constants  				ALPHANUMERIC_FULL ALPHANUMERIC_HALF CHINESE JAPANESE_HIRAGANA JAPANESE_KATAKANA_FULL JAPANESE_KATAKANA_HALF KOREAN UNKNOWN
+syn keyword flash8Properties 				appendChild cacheAsBitmap opaqueBackground scrollRect keyPress #initclip #endinitclip kerning letterSpacing onHTTPStatus lineGradientStyle IME windowlessDisable hasIME hideBuiltInItems onIMEComposition getEnabled setEnabled getConversionMode setConversionMode setCompositionString doConversion idMap antiAliasType available bottom bottomRight concatenatedColorTransform concatenatedMatrix creationDate creator fileList maxLevel modificationDate pixelBounds rectangle rgb top topLeft attachBitmap beginBitmapFill blendMode filters getRect scale9Grid gridFitType sharpness thickness
+syn keyword flash8Classes 				BevelFilter BitmapData BitmapFilter BlurFilter ColorMatrixFilter ColorTransform ConvolutionFilter DisplacementMapFilter DropShadowFilter ExternalInterface FileReference FileReferenceList GlowFilter GradientBevelFilter GradientGlowFilter Matrix Point Rectangle TextRenderer
+syn keyword actionScriptInclude #include #initClip #endInitClip
 " catch errors caused by wrong parenthesis
 syn match   actionScriptInParen     contained "[{}]"
 syn region  actionScriptParen       transparent start="(" end=")" contains=actionScriptParen,actionScript.*
@@ -124,15 +130,19 @@ if version >= 508 || !exists("did_actionscript_syn_inits")
   HiLink actionScriptTextField		Type
   HiLink actionScriptMethods		Statement
   HiLink actionScriptException		Exception
-  HiLink actionScriptXML		Type
-  HiLink actionScriptArrayConstant	Type
-  HiLink actionScriptStringConstant	Type
-  HiLink actionScriptEventConstant	Type
+  HiLink actionScriptXML			Type
+  HiLink actionScriptArrayConstant	Constant
+  HiLink actionScriptStringConstant	Constant
+  HiLink actionScriptEventConstant	Constant
   HiLink actionScriptTextSnapshot	Type
-  HiLink actionScriptID3		Type
-  HiLink actionScriptAS2		Function
+  HiLink actionScriptID3			Type
+  HiLink actionScriptAS2			Function
   HiLink actionScriptStyleSheet		Type
-  
+  HiLink flash8Constants		Constant
+  HiLink flash8Functions		Function
+  HiLink flash8Properties		Type
+  HiLink flash8Classes 			Type
+  HiLink actionScriptInclude		Include
   delcommand HiLink
 endif
 
